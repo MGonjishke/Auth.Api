@@ -1,0 +1,15 @@
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.csproj.AssemblyReference.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.AssemblyInfoInputs.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.AssemblyInfo.cs
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.csproj.CoreCompileInputs.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Application\bin\Debug\net8.0\Auth.Application.deps.json
+D:\User Management And System Authentication\Auth.Api\Auth.Application\bin\Debug\net8.0\Auth.Application.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Application\bin\Debug\net8.0\Auth.Application.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Application\bin\Debug\net8.0\Auth.Domain.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Application\bin\Debug\net8.0\Auth.Domain.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.App.E6399BD7.Up2Date
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\refint\Auth.Application.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\Auth.Application.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Application\obj\Debug\net8.0\ref\Auth.Application.dll

@@ -1,0 +1,17 @@
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Infrastructure.deps.json
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Infrastructure.runtimeconfig.json
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Infrastructure.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Infrastructure.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Domain.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\bin\Debug\net8.0\Auth.Domain.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.csproj.AssemblyReference.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.AssemblyInfoInputs.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.AssemblyInfo.cs
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.csproj.CoreCompileInputs.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Inf.EC29ECAC.Up2Date
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\refint\Auth.Infrastructure.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.pdb
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.genruntimeconfig.cache
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\ref\Auth.Infrastructure.dll
