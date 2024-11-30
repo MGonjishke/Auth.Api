@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/17966682/README.md)[Upl
 # Authentication and User Management System
 
 ## Currently, the following features have been implemented
@@ -59,5 +58,3 @@ Follow theses steps to run the project:
 5. Run the project
 
 
-
-oading README.md…]()
