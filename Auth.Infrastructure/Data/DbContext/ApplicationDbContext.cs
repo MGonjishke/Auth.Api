@@ -13,5 +13,6 @@ namespace Auth.Infrastructure.Data.DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
+
     }
 }

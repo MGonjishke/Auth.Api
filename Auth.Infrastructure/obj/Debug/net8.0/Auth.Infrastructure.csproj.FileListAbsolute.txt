@@ -15,3 +15,4 @@ D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\De
 D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.pdb
 D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.genruntimeconfig.cache
 D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\ref\Auth.Infrastructure.dll
+D:\User Management And System Authentication\Auth.Api\Auth.Infrastructure\obj\Debug\net8.0\Auth.Infrastructure.sourcelink.json

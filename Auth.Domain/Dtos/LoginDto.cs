@@ -13,7 +13,7 @@ namespace Auth.Domain.Dtos
         [Required]
         public string UsernameOrEmail { get; set; }
         [Required(ErrorMessage = "Password is required")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be between 6 and 100 characters")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 100 characters")]
         public string Password { get; set; }
     }
 }

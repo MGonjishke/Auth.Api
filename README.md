@@ -38,23 +38,30 @@ Before running the project, ensure the following are installed:
 
 Follow theses steps to run the project:
 1. Clone the repository
-    git clone https://github.com/YourUsername/Auth.Api.git
+    git clone https://github.com/MGonjishke/Auth.Api.git
     cd Auth.Api
 
-        
-2. Configuration the Connection String:In the appsettings.json file, update:
-    "ConnectionStrings": {
-         "DefaultConnection": "Server=YOUR_SERVER;Database=AuthDb;Trusted_Connection=True;"
-     }
-3. Configure JWT: Update the following in appsettings.json:
-    "JWT": {
-        "Audience": "Audience Url",
-        "Issuer": "Issuer Url",
-        "SignInKey": "Secret Key"
-      }
+2. Create a file called **appsettings.json** in Auth.Api and enter and configure the following code:
+           
+           {
+          "Logging": {
+            "LogLevel": {
+              "Default": "Information",
+              "Microsoft.AspNetCore": "Warning"
+            }
+          },
+          "ConnectionStrings": {
+            "DefaultConnection": "Server=YOUR_SERVER;Database=AuthDb;Trusted_Connection=True;"
+          },
+          "JWT": {
+            "Audience": "Audience Url",
+            "Issuer": "Issuer Url",
+            "SignInKey": "Secret Key"
+          }
+        } 
+   
+
 
 4. Apply Migrations: Run the migration to set up the database schema.
 
 5. Run the project
-
-

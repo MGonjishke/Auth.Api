@@ -45,7 +45,7 @@ namespace Auth.Application.Services
             {
                 Subject = new ClaimsIdentity(claims),
                 SigningCredentials = creds,
-                Expires = DateTime.UtcNow.AddMinutes(15),
+                Expires = DateTime.UtcNow.AddDays(7),
                 Issuer = _config["JWT:Issuer"],
                 Audience = _config["JWT:Audience"]
             };
