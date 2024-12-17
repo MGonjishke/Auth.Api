@@ -88,7 +88,7 @@ namespace Auth.Application.Services
                     {
                         Email = registerDto.Email,
                         UserName = registerDto.Username,
-                        Token = _tokenService.CreateToken(appUser)
+                        Token = await  _tokenService.CreateToken(appUser)
                     }
                 };
             }

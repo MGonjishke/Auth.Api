@@ -57,7 +57,7 @@ namespace Auth.Application.Services
             }
 
 
-            var token =  _tokenService.CreateToken(user);
+            var token = await _tokenService.CreateToken(user);
 
 
             _logger.LogInformation("User logged in successfully. Username: {Username}", user.UserName);
@@ -72,7 +72,7 @@ namespace Auth.Application.Services
             {
                 IsSuccess = true,
                 Message = "Login successful",
-                Token = token,
+                Token =  token,
                 UsernameOrEmail = loginDto.UsernameOrEmail
             };
         }

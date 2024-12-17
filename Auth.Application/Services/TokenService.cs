@@ -31,8 +31,10 @@ namespace Auth.Application.Services
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SignInKey"]));
         }
 
-        public string CreateToken(AppUser user)
+        public async Task<string> CreateToken(AppUser user)
         {
+
+            var roles = await _userManager.GetRolesAsync(user);
 
             var claims = new List<Claim>()
             {
@@ -40,6 +42,11 @@ namespace Auth.Application.Services
                 new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Email , user.Email),
             };
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
