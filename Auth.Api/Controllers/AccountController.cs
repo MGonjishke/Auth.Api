@@ -1,6 +1,7 @@
 ﻿using Auth.Domain.Dtos;
 using Auth.Domain.Entities;
 using Auth.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;

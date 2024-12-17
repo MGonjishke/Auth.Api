@@ -1,0 +1,17 @@
+*.user
+*.db
+appsettings*.json  
+*.dtbcache.v2
+*.vsidx
+**/bin/
+**/obj/
+*.log
+*.tmp
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.dll
+*.pdb
+*.exe

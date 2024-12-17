@@ -56,10 +56,17 @@ namespace Auth.Application.Services
                 return new LoginResult() { IsSuccess = false, Message = "Invalid Password" };
             }
 
-            var token = _tokenService.CreateToken(user);
+
+            var token =  _tokenService.CreateToken(user);
 
 
             _logger.LogInformation("User logged in successfully. Username: {Username}", user.UserName);
+
+
+            user.LastLoginDate = DateTime.UtcNow;
+
+
+            await _userManager.UpdateAsync(user);
 
             return new LoginResult()
             {

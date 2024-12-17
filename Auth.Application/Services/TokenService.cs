@@ -12,18 +12,21 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.WebSockets;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.Identity;
 
 namespace Auth.Application.Services
 {
     public class TokenService : ITokenService
     {
+        private readonly UserManager<AppUser> _userManager;
 
         private readonly IConfiguration _config;
 
         private readonly SymmetricSecurityKey _key;
 
-        public TokenService(IConfiguration config)
+        public TokenService(IConfiguration config, UserManager<AppUser> userManager)
         {
+             _userManager = userManager;
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SignInKey"]));
         }
@@ -35,7 +38,7 @@ namespace Auth.Application.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                 new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Email , user.Email)
+                new Claim(JwtRegisteredClaimNames.Email , user.Email),
             };
 
 
@@ -44,8 +47,8 @@ namespace Auth.Application.Services
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(claims),
-                SigningCredentials = creds,
                 Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = creds,
                 Issuer = _config["JWT:Issuer"],
                 Audience = _config["JWT:Audience"]
             };

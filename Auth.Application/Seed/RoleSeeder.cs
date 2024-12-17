@@ -21,7 +21,7 @@ namespace Auth.Application.Seed
 
 
 
-            var roles = new[] { "Admin", "User", "Guest" };
+            var roles = new[] { "Admin", "User"};
 
             foreach (var role in roles)
             {
@@ -33,7 +33,7 @@ namespace Auth.Application.Seed
 
 
 
-            var adminEmail = "admin@gmail.com";
+            var adminEmail = "Admin@gmail.com";
 
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
@@ -47,11 +47,11 @@ namespace Auth.Application.Seed
                 };
 
 
-               var result = await userManager.CreateAsync(admin, "AdminPassword258");
+               var result = await userManager.CreateAsync(admin, "Password123?");
 
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(admin, "admin"); 
+                    await userManager.AddToRoleAsync(admin, "Admin"); 
                 }
 
             }
