@@ -34,7 +34,7 @@ namespace Auth.Application.Services
             if (users.Count == 0)
             {
                 _logger.LogError("there is no user");
-                throw new Exception("There is no user");
+                return new List<UserDto>();
             }
             
             var userDto =  users.Select(user => user.ToUserDto());
@@ -75,6 +75,24 @@ namespace Auth.Application.Services
             }
 
             return IdentityResult.Failed(errors);
+        }
+
+        public async Task<IEnumerable<UserDto>> SearchUserAsync(string query)
+        {
+
+            var user = await _userManager.Users.Where(user =>
+                user.Email.ToLower().Contains(query.ToLower()) || user.UserName.ToLower().Contains(query.ToLower()) || user.PhoneNumber.ToLower().Contains(query.ToLower())).ToListAsync();
+
+            if (user.Count == 0)
+            {
+                _logger.LogWarning("There is no user.");
+                return new List<UserDto>();
+            }
+
+            var userDto =  user.Select(user => user.ToUserDto());
+
+            return userDto;
+
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Auth.Domain.Interfaces
     public interface IUserService
     {
         Task<IEnumerable<UserDto>> GetAllUsers();
+        Task<IEnumerable<UserDto>> SearchUserAsync(string query);
         Task<IdentityResult> DeleteUserAsync(string id);
     }
 }

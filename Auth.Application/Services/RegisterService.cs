@@ -45,11 +45,11 @@ namespace Auth.Application.Services
 
             _logger.LogInformation("Checkign if username or email already exist");
 
-            var existUser = await _userManager.Users.FirstOrDefaultAsync(user => user.UserName == registerDto.Username || user.Email == registerDto.Email);
+            var existUser = await _userManager.Users.FirstOrDefaultAsync(user => user.UserName == registerDto.Username || user.Email == registerDto.Email || user.PhoneNumber == registerDto.PhoneNumber);
 
             if (existUser != null)
             {
-                _logger.LogWarning("Emali or Username already exist. Email: {Email}, Username: {Username}", registerDto.Email, registerDto.Username);
+                _logger.LogWarning("Emali,Username,Phonenumber already exist. Email: {Email}, Username: {Username}, Number: {Number}", registerDto.Email, registerDto.Username, registerDto.PhoneNumber);
 
                 var error = existUser.UserName == registerDto.Username ? "Username already exist" : "Email already exist";
 

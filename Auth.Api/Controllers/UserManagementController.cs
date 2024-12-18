@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth.Api.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminOnly")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserManagementController : ControllerBase
@@ -28,9 +29,39 @@ namespace Auth.Api.Controllers
 
             var users = await _userService.GetAllUsers();
 
+            if (!users.Any())
+            {
+                return NotFound("There is no user.");
+            }
+
             return Ok(users);
 
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchUser([FromQuery] string query)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            if (string.IsNullOrEmpty(query))
+            {
+                return BadRequest("Query parameter cannot be empty.");
+            }
+
+            var user = await _userService.SearchUserAsync(query);
+
+            if (!user.Any())
+            {
+                return NotFound("there is no user.");
+            }
+
+            return Ok(user);
+        }
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteUser([FromBody]string? id)
@@ -44,7 +75,7 @@ namespace Auth.Api.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(new {Result = result, Message = "User Deleted"});
+                return Ok(new {Result = result, Message = "User Deleted."});
             }
             else
             {
@@ -52,5 +83,7 @@ namespace Auth.Api.Controllers
                 return BadRequest(errors);
             }        
         }
+
+
     }
 }
