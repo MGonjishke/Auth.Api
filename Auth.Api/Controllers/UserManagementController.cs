@@ -32,9 +32,25 @@ namespace Auth.Api.Controllers
 
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser([FromBody]string? id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var result = await _userService.DeleteUserAsync(id);
 
-
-
+            if (result.Succeeded)
+            {
+                return Ok(new {Result = result, Message = "User Deleted"});
+            }
+            else
+            {
+                var errors = result.Errors;
+                return BadRequest(errors);
+            }        
+        }
     }
 }

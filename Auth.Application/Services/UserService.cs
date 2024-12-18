@@ -1,4 +1,5 @@
 ﻿using Auth.Application.Mappers;
+using Auth.Domain.Common;
 using Auth.Domain.Dtos;
 using Auth.Domain.Entities;
 using Auth.Domain.Interfaces;
@@ -39,6 +40,41 @@ namespace Auth.Application.Services
             var userDto =  users.Select(user => user.ToUserDto());
 
             return  userDto;
+        }
+
+
+        public async Task<IdentityResult> DeleteUserAsync(string id) 
+        {
+
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(user => user.Id == id);
+
+            if (user == null)
+            {
+                _logger.LogWarning("There is no user with this ID");
+
+                return  IdentityResult.Failed(new IdentityError { Description = "There is no user with this ID" });
+            }
+
+           var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                return IdentityResult.Success;
+            }
+
+            var errors = result.Errors.Select(error => new IdentityError
+            {
+                Code = error.Code,
+                Description = error.Description,
+            }).ToArray();
+
+            foreach (var error in errors)
+            {
+                _logger.LogError("Error: {error}",error);
+            }
+
+            return IdentityResult.Failed(errors);
         }
     }
 }

@@ -14,6 +14,5 @@ namespace Auth.Domain.Interfaces
     {
         Task<RegisterIdentityResult<IdentityResult>> RegisterAsync(RegisterDto registerDto);
 
-        Task<AppUser> GetUserByEmail(string email);
     }
 }

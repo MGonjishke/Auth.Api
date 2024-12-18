@@ -113,11 +113,6 @@ namespace Auth.Application.Services
             }
         }
 
-        public Task<AppUser> GetUserByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }

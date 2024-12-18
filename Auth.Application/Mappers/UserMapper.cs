@@ -14,6 +14,7 @@ namespace Auth.Application.Mappers
         {
             return new UserDto
             {
+                Id = user.Id,
                 FullName = user.FullName,
                 Username = user.UserName,
                 Email = user.Email,
