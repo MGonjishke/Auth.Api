@@ -10,7 +10,7 @@ namespace Auth.Application.Mappers
 {
     public static class UserMapper
     {
-        public static UserDto ToUserDto(this AppUser user)
+        public static UserDto ToUserDto(this AppUser user, string role)
         {
             return new UserDto
             {
@@ -18,6 +18,7 @@ namespace Auth.Application.Mappers
                 FullName = user.FullName,
                 Username = user.UserName,
                 Email = user.Email,
+                Role = role,
                 RegisterDate = user.RegisterDate,
                 LastLoginDate = user.LastLoginDate,
             };

@@ -15,7 +15,5 @@ namespace Auth.Domain.Entities
 
         public DateTime? LastLoginDate { get; set; }
 
-        public AccountStatus Status { get; set; }
-
     }
 }

@@ -19,8 +19,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
     {
@@ -96,13 +94,7 @@ builder.Services.AddSwaggerGen(option =>
 });
 
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy =>
-    {
-        policy.RequireRole("Admin");
-    });
-});
+
 
 
 var app = builder.Build();

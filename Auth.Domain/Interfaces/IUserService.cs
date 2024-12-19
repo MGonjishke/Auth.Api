@@ -15,5 +15,6 @@ namespace Auth.Domain.Interfaces
         Task<IEnumerable<UserDto>> GetAllUsers();
         Task<IEnumerable<UserDto>> SearchUserAsync(string query);
         Task<IdentityResult> DeleteUserAsync(string id);
+        Task<IdentityResult> ChangeRoleToAdmin(string id);
     }
 }

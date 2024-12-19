@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Auth.Api.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserManagementController : ControllerBase
@@ -19,7 +19,7 @@ namespace Auth.Api.Controllers
                 _userService = userService;
             }
        
-        [HttpGet]
+        [HttpGet("get all")]
         public async Task<IActionResult> GetAllUsers()
         {
             if (!ModelState.IsValid)
@@ -62,8 +62,8 @@ namespace Auth.Api.Controllers
             return Ok(user);
         }
 
-
-        [HttpDelete]
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpDelete("delete user")]
         public async Task<IActionResult> DeleteUser([FromBody]string? id)
         {
             if(!ModelState.IsValid)
@@ -84,6 +84,26 @@ namespace Auth.Api.Controllers
             }        
         }
 
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPost("change role")]
+        public async Task<IActionResult> ChangeRoleToAdmin([FromBody]string id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var result = await _userService.ChangeRoleToAdmin(id);
+
+            if (result.Succeeded)
+            {
+                return Ok(new { Result = result, Message = "Role succeesfully changed" });
+            }
+
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

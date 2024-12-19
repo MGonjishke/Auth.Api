@@ -36,10 +36,18 @@ namespace Auth.Application.Services
                 _logger.LogError("there is no user");
                 return new List<UserDto>();
             }
-            
-            var userDto =  users.Select(user => user.ToUserDto());
 
-            return  userDto;
+            List<UserDto> userDtos = new List<UserDto>();
+
+            foreach(var user in users)
+            {
+                var role = await _userManager.GetRolesAsync(user);
+                var userRole = role.FirstOrDefault();
+                userDtos.Add(user.ToUserDto(userRole));
+            }
+
+
+            return userDtos;
         }
 
 
@@ -80,19 +88,70 @@ namespace Auth.Application.Services
         public async Task<IEnumerable<UserDto>> SearchUserAsync(string query)
         {
 
-            var user = await _userManager.Users.Where(user =>
+            var users = await _userManager.Users.Where(user =>
                 user.Email.ToLower().Contains(query.ToLower()) || user.UserName.ToLower().Contains(query.ToLower()) || user.PhoneNumber.ToLower().Contains(query.ToLower())).ToListAsync();
 
-            if (user.Count == 0)
+            if (users.Count == 0)
             {
                 _logger.LogWarning("There is no user.");
                 return new List<UserDto>();
             }
 
-            var userDto =  user.Select(user => user.ToUserDto());
 
-            return userDto;
+            List<UserDto> userDtos = new List<UserDto>();
+
+            foreach (var user in users)
+            {
+                var role = await _userManager.GetRolesAsync(user);
+                var userRole = role.FirstOrDefault();
+                userDtos.Add(user.ToUserDto(userRole));
+            }
+
+
+            return userDtos;
 
         }
+
+        public async Task<IdentityResult> ChangeRoleToAdmin(string id)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(user => user.Id == id);
+
+            if (user == null)
+            {
+                _logger.LogWarning("There is no user with this Id");
+                return IdentityResult.Failed(new IdentityError { Description = "There is no user with this Id" });
+            }
+
+            if (_userManager.GetRolesAsync(user).ToString() == "Admin")
+            {
+                return IdentityResult.Failed(new IdentityError { Description = "The role is already admin" });
+            }
+
+            await _userManager.RemoveFromRoleAsync(user, "User");
+
+            var result = await _userManager.AddToRoleAsync(user, "Admin");
+
+
+            if (result.Succeeded)
+            {
+                return IdentityResult.Success;
+            }
+
+            var errors = result.Errors.Select(error => new IdentityError
+            {
+                Code = error.Code,
+                Description = error.Description,
+            }).ToArray();
+            
+            foreach (var error in errors)
+            {
+                _logger.LogError("Error:{error}", error);
+            }
+
+            return IdentityResult.Failed(errors);
+
+        }
+
+
     }
 }
