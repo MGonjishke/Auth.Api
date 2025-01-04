@@ -1,4 +1,4 @@
-﻿using Auth.Domain.Enums;
+﻿
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

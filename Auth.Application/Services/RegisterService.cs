@@ -66,7 +66,6 @@ namespace Auth.Application.Services
                 Email = registerDto.Email,
                 FullName = registerDto.Fullname,
                 PhoneNumber = registerDto.PhoneNumber,
-                Status = Domain.Enums.AccountStatus.Active,
                 RegisterDate = DateTime.UtcNow,
             };
 
